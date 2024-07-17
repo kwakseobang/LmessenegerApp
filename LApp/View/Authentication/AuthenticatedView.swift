@@ -13,10 +13,10 @@ struct AuthenticatedView: View {
         switch authViewModel.authenticationState {
         case .authenticated:
             // TODO: - MainView
-            EmptyView()
+            MainTabView()
         case .unauthenticated:
             //TODO: - LoginView
-            EmptyView()
+            LoginView()
         }
     }
 }
