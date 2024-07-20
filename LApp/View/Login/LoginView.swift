@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(\.dismiss) var dismiss
-    
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
@@ -27,20 +26,13 @@ struct LoginView: View {
             
             Spacer()
             
-            Group {
                 Button{
                     authViewModel.send(action: .googleLogin)
                 }label: {
                     Text("Google로 로그인")
                 }
-               
-                Button{
-                    //TODO: apple
-                }label: {
-                    Text("Apple로 로그인")
-                }
-            }
-            .buttonStyle(LoginBtnStyle(textColor: .bkText_ct, borderColor: .greyLight_ct))
+                .buttonStyle(LoginBtnStyle(textColor: .bkText_ct, borderColor: .greyLight_ct))
+         
         }
         .navigationBarBackButtonHidden()
         .toolbar{
@@ -63,4 +55,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(AuthenticationViewModel(container: .stub))
 }
