@@ -21,10 +21,12 @@ enum AuthenticationError: Error {
 protocol AuthenticationServiceType {
     func signInWithGoogle() -> AnyPublisher<User,ServiceError>
     func checkAuthenticationState() -> String?
-    
+    func logOut() -> AnyPublisher<Void,ServiceError>
 }
 
 class AuthenticationService: AuthenticationServiceType {
+   
+    
     func checkAuthenticationState() -> String? {
         //firebase를 이용해 현재 유저 정보가 있는 지 체크 후 추출
         if let user = Auth.auth().currentUser {
@@ -46,7 +48,16 @@ class AuthenticationService: AuthenticationServiceType {
             }
         }.eraseToAnyPublisher()
     }
-    
+    func logOut() -> AnyPublisher<Void, ServiceError> {
+        Future { promise in
+            do {
+                try Auth.auth().signOut()
+                promise(.success(()))
+            } catch{
+                promise(.failure(.error(error)))
+            }
+        }.eraseToAnyPublisher()
+    }
 }
 
 extension AuthenticationService {
@@ -113,6 +124,8 @@ extension AuthenticationService {
 }
 
 class StubAuthenticationService: AuthenticationServiceType {
+   
+    
     func checkAuthenticationState() -> String? {
         return nil
     }
@@ -122,4 +135,7 @@ class StubAuthenticationService: AuthenticationServiceType {
         
     }
     
+    func logOut() -> AnyPublisher<Void, ServiceError> {
+        Empty().eraseToAnyPublisher()
+    }
 }
