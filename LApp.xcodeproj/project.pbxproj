@@ -119,6 +119,7 @@
 		D610FA322C47DFCF0017407F /* LApp */ = {
 			isa = PBXGroup;
 			children = (
+				D610FA892C4B3BD40017407F /* New Group */,
 				D610FA802C47E5CB0017407F /* Delgate */,
 				D610FA332C47DFCF0017407F /* LAppApp.swift */,
 				D610FA7E2C47E4C40017407F /* GoogleService-Info.plist */,
@@ -234,6 +235,13 @@
 				D610FA852C47E8540017407F /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D610FA892C4B3BD40017407F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
