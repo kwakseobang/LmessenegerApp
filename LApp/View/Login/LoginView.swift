@@ -51,6 +51,11 @@ struct LoginView: View {
                     Image("back")
                 }
             }
+        } // lodding 중일 떄
+        .overlay {
+            if authViewModel.isLodding {
+                ProgressView()
+            }
         }
      
     }

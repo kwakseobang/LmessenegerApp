@@ -16,10 +16,11 @@ enum AuthenticationState {
 class AuthenticationViewModel: ObservableObject {
     enum Action {
         case googleLogin
+        case checkAuthenticationState
     }
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
-    
+    @Published var isLodding: Bool = false //lodding 중
     var userID: String?
     
    
@@ -32,14 +33,26 @@ class AuthenticationViewModel: ObservableObject {
     
     func send(action: Action) {
         switch action {
+            //자동로그인 기능
+        case .checkAuthenticationState:
+            if let userID = container.services.authService.checkAuthenticationState() {
+                self.userID = userID
+                self.authenticationState = .authenticated
+            }
         case .googleLogin:
+            isLodding = true
             container.services.authService.signInWithGoogle()
             //요청하는 작업 sink 사용 시 구독권 방출
-                .sink { completion in
-                    // TODO: 실패 시
+                .sink { [weak self] completion in
+                    // TODO: 실패 시 Progress 바 중단
+                    if case .failure = completion {
+                        self?.isLodding = false
+                    }
                 } receiveValue: { [weak self] user in
+                    self?.isLodding = false
                     //viewmodel에서 User 정보를 가지고 있게 함
                     self?.userID = user.id
+                    self?.authenticationState = .authenticated
                 }.store(in: &subscriptions)
             
 

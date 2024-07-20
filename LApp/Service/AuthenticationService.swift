@@ -19,12 +19,18 @@ enum AuthenticationError: Error {
 
 ///viewModel과 Serivece를 Combine으로 연결 예정
 protocol AuthenticationServiceType {
-   func signInWithGoogle() -> AnyPublisher<User,ServiceError>
+    func signInWithGoogle() -> AnyPublisher<User,ServiceError>
+    func checkAuthenticationState() -> String?
     
 }
 
 class AuthenticationService: AuthenticationServiceType {
-  
+    func checkAuthenticationState() -> String? {
+        //firebase를 이용해 현재 유저 정보가 있는 지 체크 후 추출
+        if let user = Auth.auth().currentUser {
+            return user.uid
+        } else { return nil }
+    }
     
     //구글 로그인은 Combine을 제공하지 않기때문에 completion handler로 Puture로 Publisher를 만들 예정
     func signInWithGoogle() -> AnyPublisher<User,ServiceError> {
@@ -40,9 +46,11 @@ class AuthenticationService: AuthenticationServiceType {
             }
         }.eraseToAnyPublisher()
     }
-
+    
 }
+
 extension AuthenticationService {
+    
     private func signInWithGoogle(completion: @escaping (Result<User, Error>) -> Void)  {
         //1. firebase client id로 google configuration object 생성
         // clientID 받아오는 작업
@@ -68,7 +76,7 @@ extension AuthenticationService {
             guard let user = result?.user, let idToken = user.idToken?.tokenString else {
                 completion(.failure(AuthenticationError.tokenError))
                 return
-             }
+            }
             let accessToken = user.accessToken.tokenString
             //credential 생성
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,accessToken: accessToken)
@@ -100,14 +108,18 @@ extension AuthenticationService {
             )
             completion(.success(user))
         }
-            
+        
     }
 }
 
 class StubAuthenticationService: AuthenticationServiceType {
-    func signInWithGoogle() -> AnyPublisher<User,ServiceError> {
-        Empty().eraseToAnyPublisher()
-
+    func checkAuthenticationState() -> String? {
+        return nil
     }
 
+    func signInWithGoogle() -> AnyPublisher<User,ServiceError> {
+        Empty().eraseToAnyPublisher()
+        
+    }
+    
 }

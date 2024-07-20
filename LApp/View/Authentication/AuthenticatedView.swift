@@ -10,14 +10,19 @@ import SwiftUI
 struct AuthenticatedView: View {
     @StateObject var authViewModel: AuthenticationViewModel 
     var body: some View {
-        switch authViewModel.authenticationState {
-        case .authenticated:
-            // TODO: - MainView
-            MainTabView()
-        case .unauthenticated:
-            //TODO: - LoginView
-            LoginIntroView()
-                .environmentObject(authViewModel) // 주입
+        VStack {
+            switch authViewModel.authenticationState {
+            case .authenticated:
+                // TODO: - MainView
+                MainTabView()
+            case .unauthenticated:
+                //TODO: - LoginView
+                LoginIntroView()
+                    .environmentObject(authViewModel) // 주입
+            }
+        }
+        .onAppear {
+            authViewModel.send(action: .checkAuthenticationState)
         }
     }
 }
