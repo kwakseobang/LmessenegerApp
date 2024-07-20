@@ -16,7 +16,7 @@ struct AuthenticatedView: View {
             MainTabView()
         case .unauthenticated:
             //TODO: - LoginView
-            LoginView()
+            LoginIntroView()
         }
     }
 }
