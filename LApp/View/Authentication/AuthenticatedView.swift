@@ -17,6 +17,7 @@ struct AuthenticatedView: View {
         case .unauthenticated:
             //TODO: - LoginView
             LoginIntroView()
+                .environmentObject(authViewModel) // 주입
         }
     }
 }

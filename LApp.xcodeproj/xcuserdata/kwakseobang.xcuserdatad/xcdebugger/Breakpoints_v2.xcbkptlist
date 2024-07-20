@@ -3,4 +3,70 @@
    uuid = "4BF9998A-A748-423F-B6AD-960A42E1BFA0"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1D9E6BC-5E04-454A-82EF-8BAB87E7399B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LApp/Service/AuthenticationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "authenticateUserWithFirebase(credential:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A1D9E6BC-5E04-454A-82EF-8BAB87E7399B - 5aa7dfa0c75ec56a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LApp.AuthenticationService.authenticateUserWithFirebase(credential: __C.FIRAuthCredential, completion: (Swift.Result&lt;LApp.User, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kwakseobang/Desktop/SwiftUIPractice/LmessenegerApp/LApp/Service/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "A1D9E6BC-5E04-454A-82EF-8BAB87E7399B - 5aa7dfa0c75ec56a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LApp.AuthenticationService.authenticateUserWithFirebase(credential: __C.FIRAuthCredential, completion: (Swift.Result&lt;LApp.User, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kwakseobang/Desktop/SwiftUIPractice/LmessenegerApp/LApp/Service/AuthenticationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "384">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1102DC55-8480-436E-8C49-074449804AEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LApp/Service/AuthenticationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "authenticateUserWithFirebase(credential:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
