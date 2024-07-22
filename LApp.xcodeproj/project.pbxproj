@@ -34,6 +34,7 @@
 		D6D4B4982C4DD2FD00E80225 /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4B4972C4DD2FD00E80225 /* MainTabType.swift */; };
 		D6D4B49C2C4DD5DE00E80225 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4B49B2C4DD5DE00E80225 /* HomeView.swift */; };
 		D6D4B49E2C4DD5E600E80225 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4B49D2C4DD5E600E80225 /* ChatListView.swift */; };
+		D6D4B4A02C4DDA1200E80225 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D4B49F2C4DDA1200E80225 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		D6D4B4972C4DD2FD00E80225 /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
 		D6D4B49B2C4DD5DE00E80225 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D6D4B49D2C4DD5E600E80225 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		D6D4B49F2C4DDA1200E80225 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,11 +187,11 @@
 		D610FA5E2C47DFE50017407F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6D4B49A2C4DD4B500E80225 /* ChatList */,
-				D6D4B4992C4DD4A900E80225 /* Home */,
+				D610FA6E2C47E2010017407F /* Authentication */,
 				D610FA842C47E8480017407F /* Login */,
 				D610FA832C47E8400017407F /* MainTab */,
-				D610FA6E2C47E2010017407F /* Authentication */,
+				D6D4B4992C4DD4A900E80225 /* Home */,
+				D6D4B49A2C4DD4B500E80225 /* ChatList */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D4B49B2C4DD5DE00E80225 /* HomeView.swift */,
+				D6D4B49F2C4DDA1200E80225 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D610FA982C4B4F090017407F /* User.swift in Sources */,
+				D6D4B4A02C4DDA1200E80225 /* HomeViewModel.swift in Sources */,
 				D610FA8F2C4B425B0017407F /* LoginBtnStyle.swift in Sources */,
 				D610FA8B2C4B3CA40017407F /* AppDelegate.swift in Sources */,
 				D610FA712C47E2330017407F /* AuthenticationViewModel.swift in Sources */,
