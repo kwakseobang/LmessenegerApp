@@ -16,6 +16,19 @@ struct User {
 }
 
 extension User {
+    // UserObject로 변환
+    func toObject() -> UserObject {
+        .init(
+            id: id,
+            name: name,
+            phoneNumber: phoneNumber,
+            profileURL:profileURL,
+            description: description
+        )
+    }
+}
+
+extension User {
     static var stub1: User {
         .init(id: "user1", name: "곽문수")
     }
