@@ -45,11 +45,13 @@ struct HomeView: View {
                 Button{
                     //TODO: setting
                 }label: {
-                    Image("settings ")
+                    Image("settings")
                 }
             }
         }
-       
+        .onAppear{
+            homeViewModel.send(.getUser)
+        }
     }
 }
 
@@ -175,6 +177,7 @@ private struct UserListView: View {
        .padding(.horizontal,30)
     }
 }
+
 #Preview {
-    HomeView(homeViewModel: .init())
+    HomeView(homeViewModel: .init(container: .init(services: StubService()),userID: "user1_id"))
 }
