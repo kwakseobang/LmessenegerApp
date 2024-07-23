@@ -15,6 +15,7 @@ struct AuthenticatedView: View {
             case .authenticated:
                 // TODO: - MainView
                 MainTabView()
+                    .environmentObject(authViewModel)
             case .unauthenticated:
                 //TODO: - LoginView
                 LoginIntroView()
@@ -23,6 +24,10 @@ struct AuthenticatedView: View {
         }
         .onAppear {
             authViewModel.send(action: .checkAuthenticationState)
+            
+            
+            
+            
         }
     }
 }

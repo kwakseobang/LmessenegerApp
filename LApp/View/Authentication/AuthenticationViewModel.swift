@@ -22,6 +22,7 @@ class AuthenticationViewModel: ObservableObject {
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var isLodding: Bool = false //lodding 중
+    
     var userID: String?
     
    
@@ -43,6 +44,10 @@ class AuthenticationViewModel: ObservableObject {
         case .googleLogin:
             isLodding = true
             container.services.authService.signInWithGoogle()
+            // TODO: - login 성공 시 유저 정보 DB에 저장
+                .flatMap { user in
+                    self.container.services.userService.addUser(user) // DB에 저장
+                }
             //요청하는 작업 sink 사용 시 구독권 방출
                 .sink { [weak self] completion in
                     // TODO: 실패 시 Progress 바 중단
